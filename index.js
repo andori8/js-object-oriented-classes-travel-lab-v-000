@@ -18,7 +18,18 @@ class Route {
     this.endingLocation = endingLocation;
   }
 
+  findIndex(ave) {
+    return eastWest.indexOf(ave);
+  }
+  
   blocksTravelled() {
+    let verticalDistance = this.endingLocation.vertical - this.beginningLocation.vertical;
+    let horizontalDistance = this.findIndex(this.endingLocation.horizontal) - this.findIndex(this.beginningLocation.horizontal);
+
+    return Math.abs(verticalDistance) + Math.abs(horizontalDistance);
+  }
+
+  estimatedTime() {
     
   }
 }
