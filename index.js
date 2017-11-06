@@ -21,7 +21,7 @@ class Route {
   findIndex(ave) {
     return eastWest.indexOf(ave);
   }
-  
+
   blocksTravelled() {
     let verticalDistance = this.endingLocation.vertical - this.beginningLocation.vertical;
     let horizontalDistance = this.findIndex(this.endingLocation.horizontal) - this.findIndex(this.beginningLocation.horizontal);
@@ -29,7 +29,11 @@ class Route {
     return Math.abs(verticalDistance) + Math.abs(horizontalDistance);
   }
 
-  estimatedTime() {
-    
+  estimatedTime(peak) {
+    if (peak) {
+      return blocksTravelled() / 3;
+    } else {
+      return blocksTravelled() / 2;
+    }
   }
 }
